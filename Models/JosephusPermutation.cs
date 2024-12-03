@@ -12,11 +12,11 @@ namespace CodeWars.Models
             var result = new List<object>();
             var i = 1;
             var count = 1;
+
             while (result.Count < items.Count)
             {
-                // Circular index não chega ao último elemento do array
-                int circularIndex = i % items.Count;
-                var current = items[circularIndex - 1 <= 0 ? 0 : circularIndex - 1];
+                int circularIndex = (i - 1) % items.Count;
+                var current = items[circularIndex];
                 i++;
 
                 if (current == null)
@@ -27,20 +27,11 @@ namespace CodeWars.Models
                 if (count % k == 0)
                 {
                     result.Add(current);
-                    items[circularIndex - 1] = null;
+                    items[circularIndex] = null; 
                     count = 1;
                     continue;
                 }
 
-                if (circularIndex == items.Count)
-                {
-                    i++;
-                }
-
-                if (result.Count == items.Count)
-                {
-                    break;
-                }
                 count++;
             }
             return result;

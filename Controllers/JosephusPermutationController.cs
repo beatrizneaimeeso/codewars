@@ -21,8 +21,8 @@ namespace CodeWars.Controllers
         [Route("josephus-permutation")]
         public IActionResult Index()
         {
-            var items = new List<object> { 1, 2, 3, 4, 5, 6, 7 };
-            var k = 3;
+            var items = new List<object> { "C", "o", "d", "e", "W", "a", "r", "s" };
+            var k = 4;
             var result = JosephusPermutation.GetJosephusPermutation(items, k);
             return Ok(result);
         }

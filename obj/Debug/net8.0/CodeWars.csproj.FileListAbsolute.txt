@@ -31,3 +31,4 @@ C:\Users\Beatriz\Documents\exercises\CodeWars\CodeWars\obj\Debug\net8.0\refint\C
 C:\Users\Beatriz\Documents\exercises\CodeWars\CodeWars\obj\Debug\net8.0\CodeWars.pdb
 C:\Users\Beatriz\Documents\exercises\CodeWars\CodeWars\obj\Debug\net8.0\CodeWars.genruntimeconfig.cache
 C:\Users\Beatriz\Documents\exercises\CodeWars\CodeWars\obj\Debug\net8.0\ref\CodeWars.dll
+c:\Users\Beatriz\Documents\exercises\CodeWars\CodeWars\obj\Debug\net8.0\CodeWars.sourcelink.json

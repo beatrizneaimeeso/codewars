@@ -17,14 +17,14 @@ namespace CodeWars.Models
                 throw new Exception();
             }
             _wires = wires;
-            for (int i = 0; i < wires.Length; i += 2)
+            for (int i = 0; i < _wires.Length; i += 2)
             {
-                if (_mapping.ContainsKey(wires[i]) || _mapping.ContainsValue(wires[i]))
+                if (_mapping.ContainsKey(_wires[i]) || _mapping.ContainsValue(_wires[i]))
                 {
                     throw new ArgumentException();
                 }
-                _mapping.Add(wires[i], wires[i + 1]);
-                _mapping.Add(wires[i + 1], wires[i]);
+                _mapping.Add(_wires[i], _wires[i + 1]);
+                _mapping.Add(_wires[i + 1], _wires[i]);
             }
         }
 

@@ -103,4 +103,9 @@ namespace CodeWars.Models
             return string.Join(" ", result);
         }
     }
+
+    public class EncryptThisRequest
+    {
+        public string Input { get; set; }
+    }
 }

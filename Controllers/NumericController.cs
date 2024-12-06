@@ -39,5 +39,12 @@ namespace CodeWars.Controllers
             var participants = HandshakeProblem.GetParticipants(n);
             return Ok(participants);
         }
+
+        [Route("~/duplicate-count")]
+        public IActionResult DuplicateCounts()
+        {
+            var count = DuplicateCount.CountDuplicates("ABBA");
+            return Ok(count);
+        }
     }
 }

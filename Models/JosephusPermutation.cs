@@ -27,7 +27,7 @@ namespace CodeWars.Models
                 if (count % k == 0)
                 {
                     result.Add(current);
-                    items[circularIndex] = null; 
+                    items[circularIndex] = null;
                     count = 1;
                     continue;
                 }
@@ -35,6 +35,24 @@ namespace CodeWars.Models
                 count++;
             }
             return result;
+        }
+
+        //time out - >1200ms
+        public static int JosephusSurvivor(int n, int k)
+        {
+            if (n == k)
+            {
+                return n;
+            }
+            var items = new List<object>();
+            for (int i = 1; i <= n; i++)
+            {
+                items.Add(i);
+            }
+
+            var perm = GetJosephusPermutation(items, k);
+            var survivor = Convert.ToInt32(perm.Last());
+            return survivor;
         }
     }
 }

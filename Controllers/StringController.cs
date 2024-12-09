@@ -84,5 +84,23 @@ namespace CodeWars.Controllers
             var decrypt = Cryptography.DecryptThis(encrypt);
             return Ok(new { encrypt, decrypt });
         }
+
+        [HttpGet]
+        [Route("~/spinningwords")]
+        public IActionResult SpinWords()
+        {
+            var sentence = "You are almost to the last test";
+            var result = SpinningWords.SpinWords(sentence);
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("~/validbraces")]
+        public IActionResult FindValidBraces()
+        {
+            var braces = "}}()";
+            var result = ValidBraces.FindValidBraces(braces);
+            return Ok(result);
+        }
     }
 }

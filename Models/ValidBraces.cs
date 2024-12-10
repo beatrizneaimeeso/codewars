@@ -22,28 +22,20 @@ namespace CodeWars.Models
             };
 
             var stack = new Stack<char>();
-            braces
-                .ToList()
-                .ForEach(b =>
+            foreach (var b in braces)
+            {
+                if (dictionary.ContainsKey(b))
                 {
-                    if (dictionary.ContainsKey(b))
+                    stack.Push(b);
+                }
+                else
+                {
+                    if (stack.Count == 0 || dictionary[stack.Pop()] != b)
                     {
-                        stack.Push(b);
+                        return false;
                     }
-                    else
-                    {
-                        if (stack.Count == 0)
-                        {
-                            return;
-                        }
-
-                        var last = stack.Pop();
-                        if (dictionary[last] != b)
-                        {
-                            stack.Push(last);
-                        }
-                    }
-                });
+                }
+            }
             return stack.Count == 0;
         }
     }

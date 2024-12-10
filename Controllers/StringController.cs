@@ -98,7 +98,7 @@ namespace CodeWars.Controllers
         [Route("~/validbraces")]
         public IActionResult FindValidBraces()
         {
-            var braces = "}}()";
+            var braces = "({[]})";
             var result = ValidBraces.FindValidBraces(braces);
             return Ok(result);
         }

@@ -46,5 +46,18 @@ namespace CodeWars.Controllers
             var count = DuplicateCount.CountDuplicates("ABBA");
             return Ok(count);
         }
+
+        [Route("~/tictactoe")]
+        public IActionResult TicTacToeClass()
+        {
+            var board = new int[,]
+            {
+                { 1, 2, 1 },
+                { 1, 1, 2 },
+                { 2, 2, 0 },
+            };
+            var result = TicTacToe.TicTacToeChecker(board);
+            return Ok(result);
+        }
     }
 }

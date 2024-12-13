@@ -59,5 +59,25 @@ namespace CodeWars.Controllers
             var result = TicTacToe.TicTacToeChecker(board);
             return Ok(result);
         }
+
+        [Route("~/pop-growth")]
+        public IActionResult PopulationGrowth()
+        {
+            var years = PopGrowth.NbYear(1500, 5, 100, 5000);
+            return Ok(years);
+        }
+
+        [Route("~/pong")]
+        public IActionResult PongGame()
+        {
+            var pong = new Pong(2);
+            pong.play(50, 53);
+            pong.play(100, 97);
+            pong.play(0, 4);
+            pong.play(25, 25);
+            pong.play(75, 25);
+            pong.play(50, 50);
+            return Ok();
+        }
     }
 }

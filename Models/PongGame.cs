@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CodeWars.Models
 {
@@ -22,53 +21,46 @@ namespace CodeWars.Models
 
         public string play(int ballPos, int playerPos)
         {
-            var distance = Math.Abs(ballPos - playerPos);
-            Console.WriteLine($"Ball: {ballPos} - Player: {playerPos} - Distance: {distance}");
-            if (distance < 3.5)
+            if (p1Score >= maxScore || p2Score >= maxScore)
             {
-                if (round % 2 == 0)
-                {
-                    if (p2Score + 1 >= maxScore)
-                    {
-                        round = 0;
-                        return "Player 2 has won the game!";
-                    }
-
-                    p2Score++;
-                    round++;
-                    Console.WriteLine($"Round {round} - Player 1: {p1Score} - Player 2: {p2Score}");
-                    return "Player 1 has missed the ball!";
-                }
-                else
-                {
-                    if (p1Score + 1 >= maxScore)
-                    {
-                        round = 0;
-                        Console.WriteLine(
-                            $"Round {round} - Player 1: {p1Score} - Player 2: {p2Score}"
-                        );
-                        return "Player 1 has won the game!";
-                    }
-
-                    p1Score++;
-                    round++;
-                    Console.WriteLine($"Round {round} - Player 1: {p1Score} - Player 2: {p2Score}");
-                    return "Player 2 has missed the ball!";
-                }
+                return "Game Over!";
             }
             else
             {
+                var distance = Math.Abs(ballPos - playerPos);
                 if (round % 2 == 0)
                 {
                     round++;
-                    Console.WriteLine($"Round {round} - Player 1: {p1Score} - Player 2: {p2Score}");
-                    return "Player 2 has missed the ball!";
+                    if (distance <= 3)
+                    {
+                        return "Player 2 has hit the ball!";
+                    }
+                    else
+                    {
+                        p1Score++;
+                        if (p1Score >= maxScore)
+                        {
+                            return "Player 1 has won the game!";
+                        }
+                        return "Player 2 has missed the ball!";
+                    }
                 }
                 else
                 {
                     round++;
-                    Console.WriteLine($"Round {round} - Player 1: {p1Score} - Player 2: {p2Score}");
-                    return "Player 1 has missed the ball!";
+                    if (distance <= 3)
+                    {
+                        return "Player 1 has hit the ball!";
+                    }
+                    else
+                    {
+                        p2Score++;
+                        if (p2Score >= maxScore)
+                        {
+                            return "Player 2 has won the game!";
+                        }
+                        return "Player 1 has missed the ball!";
+                    }
                 }
             }
         }

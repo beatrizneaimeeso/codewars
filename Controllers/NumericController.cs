@@ -71,13 +71,23 @@ namespace CodeWars.Controllers
         public IActionResult PongGame()
         {
             var pong = new Pong(2);
-            pong.play(50, 53);
-            pong.play(100, 97);
-            pong.play(0, 4);
-            pong.play(25, 25);
-            pong.play(75, 25);
-            pong.play(50, 50);
-            return Ok();
+            var results = new List<string>
+            {
+                pong.play(50, 53),
+                pong.play(100, 97),
+                pong.play(0, 4),
+                pong.play(25, 25),
+                pong.play(75, 25),
+                pong.play(50, 50),
+            };
+            return Ok(results);
+        }
+
+        [Route("~/delete-occurrences")]
+        public IActionResult DeleteOccurrences()
+        {
+            var result = DeleteOccurrencesClass.DeleteNth(new int[] {1,1,3,3,7,2,2,2,2}, 3);
+            return Ok(result);
         }
     }
 }

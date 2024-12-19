@@ -89,5 +89,13 @@ namespace CodeWars.Controllers
             var result = DeleteOccurrencesClass.DeleteNth(new int[] {1,1,3,3,7,2,2,2,2}, 3);
             return Ok(result);
         }
+
+        [Route("~/supermarket-queue")]
+        public IActionResult Supermarket()
+        {
+            var result = SupermarketQueue.QueueTime(new int[] { 2, 2, 3, 3, 4, 4 }, 2);
+            return Ok(result);
+        }
+
     }
 }

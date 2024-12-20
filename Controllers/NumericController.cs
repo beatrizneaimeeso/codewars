@@ -97,5 +97,13 @@ namespace CodeWars.Controllers
             return Ok(result);
         }
 
+        [Route("~/rock-paper-scissors")]
+        public IActionResult RockPaperScissorsGame()
+        {
+            var player = new RockPaperScissors().Player;
+            var opponent = new RockPaperScissors();
+            return Ok(player);
+        }
+
     }
 }

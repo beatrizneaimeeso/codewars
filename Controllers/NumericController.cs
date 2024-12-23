@@ -86,7 +86,10 @@ namespace CodeWars.Controllers
         [Route("~/delete-occurrences")]
         public IActionResult DeleteOccurrences()
         {
-            var result = DeleteOccurrencesClass.DeleteNth(new int[] {1,1,3,3,7,2,2,2,2}, 3);
+            var result = DeleteOccurrencesClass.DeleteNth(
+                new int[] { 1, 1, 3, 3, 7, 2, 2, 2, 2 },
+                3
+            );
             return Ok(result);
         }
 
@@ -100,10 +103,9 @@ namespace CodeWars.Controllers
         [Route("~/rock-paper-scissors")]
         public IActionResult RockPaperScissorsGame()
         {
-            var player = new RockPaperScissors().Player;
-            var opponent = new RockPaperScissors();
-            return Ok(player);
+            var player = new RockPaperScissors();
+            var opponent = new RockPaperScissors();            
+            return Ok(new {player, opponent});
         }
-
     }
 }

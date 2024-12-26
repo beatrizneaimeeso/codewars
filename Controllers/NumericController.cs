@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using CodeWars.Interfaces;
 using CodeWars.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -103,9 +104,7 @@ namespace CodeWars.Controllers
         [Route("~/rock-paper-scissors")]
         public IActionResult RockPaperScissorsGame()
         {
-            var player = new RockPaperScissors();
-            var opponent = new RockPaperScissors();            
-            return Ok(new {player, opponent});
+            return Ok("Rock Paper Scissors Game");
         }
     }
 }

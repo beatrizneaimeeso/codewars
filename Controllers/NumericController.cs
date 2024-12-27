@@ -104,6 +104,9 @@ namespace CodeWars.Controllers
         [Route("~/rock-paper-scissors")]
         public IActionResult RockPaperScissorsGame()
         {
+            var playground = new RockPaperScissorsPlayground();
+            var player = new Player();
+            var result = playground.PlayTournament(player);
             return Ok("Rock Paper Scissors Game");
         }
     }

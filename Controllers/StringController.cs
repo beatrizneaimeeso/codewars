@@ -102,5 +102,14 @@ namespace CodeWars.Controllers
             var result = ValidBraces.FindValidBraces(braces);
             return Ok(result);
         }
+
+        [HttpGet]
+        [Route("~/suzuki-students")]
+        public IActionResult SuzukiStudentsProblem()
+        {
+            var students = "Tadashi Takahiro Takao Takashi Takayuki Takehiko Takeo Takeshi Takeshi";
+            var result = SuzukiStudents.LineupStudents(students);
+            return Ok(result);
+        }
     }
 }

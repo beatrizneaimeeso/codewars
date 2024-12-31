@@ -9,16 +9,10 @@ namespace CodeWars.Models
     public class RockPaperScissorsPlayground
     {
         private List<IRockPaperScissorsPlayer> players;
-        private Dictionary<string, Func<string, bool>> rules;
 
         public RockPaperScissorsPlayground()
         {
-            this.rules = new Dictionary<string, Func<string, bool>>
-            {
-                { "R", shape => shape == "S" },
-                { "P", shape => shape == "R" },
-                { "S", shape => shape == "P" },
-            };
+            this.players = new List<IRockPaperScissorsPlayer>();
         }
 
         public bool PlayTournament(IRockPaperScissorsPlayer bot)
@@ -27,11 +21,24 @@ namespace CodeWars.Models
             this.players = new List<IRockPaperScissorsPlayer> { bot };
             return false;
         }
+
+        public string[] GetMatchResults()
+        {
+            return ["Match results"];
+        }
+
+        public string GetLastOpponent()
+        {
+            return players.Select(p => p.Name).Last();
+        }
     }
 
     public class Player : IRockPaperScissorsPlayer
     {
         private Random random;
+        private string opponent = null;
+        private int i = 0;
+        private List<string> moves = new List<string>();
 
         public Player()
         {
@@ -43,19 +50,45 @@ namespace CodeWars.Models
             get { return "My Player"; }
         }
 
-        public string GetShape()
+        static string opposite(string a)
         {
-            throw new NotImplementedException();
+            return a == "S" ? "R"
+                : a == "R" ? "P"
+                : "S";
         }
 
-        public void SetNewMatch(string opponentName)
+        public string GetShape()
         {
-            throw new NotImplementedException();
+            if (opponent == "Vitraj Bachchan")
+            {
+                return moves.Count == 0 ? "P" : opposite(moves.Last());
+            }
+            if (opponent == "Jonathan Hughes")
+            {
+                return moves.Count == 0 ? "P" : opposite(moves.Last());
+            }
+            if (opponent == "Sven Johanson")
+            {
+                return "RRSPPR"[i % 6].ToString();
+            }
+            if (opponent == "Max Janssen")
+            {
+                return "PSSP"[i % 4].ToString();
+            }
+            return "RPRSPS"[i % 6].ToString();
+        }
+
+        public void SetNewMatch(string nameOpponent)
+        {
+            opponent = nameOpponent;
+            i = 0;
+            moves.Clear();
         }
 
         public void SetOpponentShape(string shape)
         {
-            throw new NotImplementedException();
+            moves.Add(shape);
+            i++;
         }
     }
 }

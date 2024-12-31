@@ -107,7 +107,20 @@ namespace CodeWars.Controllers
             var playground = new RockPaperScissorsPlayground();
             var player = new Player();
             var result = playground.PlayTournament(player);
-            return Ok("Rock Paper Scissors Game");
+
+            foreach (var l in playground.GetMatchResults())
+            {
+                Console.WriteLine(l);
+            }
+
+            if (!result)
+            {
+                Console.WriteLine(
+                    $"You are eliminated from the tournament by {playground.GetLastOpponent()}!"
+                );
+            }
+
+            return Ok(result);
         }
     }
 }

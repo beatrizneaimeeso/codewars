@@ -122,5 +122,13 @@ namespace CodeWars.Controllers
 
             return Ok(result);
         }
+
+        [Route("~/ten-minutes-walk")]
+        public IActionResult TakeAWalk()
+        {
+            var walk = new string[] { "n", "s", "n", "s", "n", "s", "n", "s" };
+            var result = TenMinutesWalk.IsValidWalk(walk);
+            return Ok(result);
+        }
     }
 }

@@ -130,5 +130,12 @@ namespace CodeWars.Controllers
             var result = TenMinutesWalk.IsValidWalk(walk);
             return Ok(result);
         }
+
+        [Route("~/human-readable-time")]
+        public IActionResult HumanReadableTime()
+        {
+            var result = HumanTime.GetReadableTime(1600);
+            return Ok(result);
+        }
     }
 }

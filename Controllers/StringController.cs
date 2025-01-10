@@ -116,9 +116,18 @@ namespace CodeWars.Controllers
         [Route("~/text-align")]
         public IActionResult TextAlignJustify()
         {
-            var text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis dolor mauris, at elementum ligula tempor eget. In quis rhoncus nunc, at aliquet orci. Fusce at dolor sit amet felis suscipit tristique. Nam auctor mauris non justo consequat, in ornare lacus posuere. Sed nec nulla aliquam, bibendum odio eget, laoreet metus. Nulla nec erat nec lectus elementum luctus. Nam venenatis erat a lectus ultrices, eget rutrum justo viverra. Cr";
+            var text = "123 45 6";
 
-            var result = TextAlign.Justify(text, 30);
+            var result = TextAlign.Justify(text, 7);
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("~/path-finder")]
+        public IActionResult PathFinder()
+        {
+            var maze = ".W.\n" + ".W.\n" + "...";
+            var result = Finder.PathFinder(maze);
             return Ok(result);
         }
     }

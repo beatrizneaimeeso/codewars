@@ -126,8 +126,20 @@ namespace CodeWars.Controllers
         [Route("~/path-finder")]
         public IActionResult PathFinder()
         {
-            var maze = ".W.\n" + ".W.\n" + "...";
+            var maze = "......\n" + "......\n" + "......\n" + "......\n" + ".....W\n" + "....W.";
             var result = Finder.PathFinder(maze);
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("~/climbers-rankings")]
+        public IActionResult ClimbersRanking()
+        {
+            var pointsByClimber = new Dictionary<string, IEnumerable<int>>
+            {
+                { "SKOFIC Domen", new[] { 55, 100, 100, 25, 100, 51, 80 } },
+            };
+            var result = ClimbersRankings.GetRankings(pointsByClimber);
             return Ok(result);
         }
     }

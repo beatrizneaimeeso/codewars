@@ -142,5 +142,87 @@ namespace CodeWars.Controllers
             var result = ClimbersRankings.GetRankings(pointsByClimber);
             return Ok(result);
         }
+
+        [HttpGet]
+        [Route("~/breadcrumb")]
+        public IActionResult Breadcrumb()
+        {
+            string[] urls = new string[]
+            {
+                "mysite.com/pictures/holidays.html",
+                "www.codewars.com/users/GiacomoSorbi?ref=CodeWars",
+                "www.microsoft.com/docs/index.htm#top",
+                "mysite.com/very-long-url-to-make-a-silly-yet-meaningful-example/example.asp",
+                "www.very-long-site_name-to-make-a-silly-yet-meaningful-example.com/users/giacomo-sorbi",
+                "https://www.linkedin.com/in/giacomosorbi",
+                "www.agcpartners.co.uk/",
+                "www.agcpartners.co.uk",
+                "https://www.agcpartners.co.uk/index.html",
+                "http://www.agcpartners.co.uk",
+            };
+            string[] seps = new string[]
+            {
+                " : ",
+                " / ",
+                " * ",
+                " > ",
+                " + ",
+                " * ",
+                " * ",
+                " # ",
+                " >>> ",
+                " % ",
+            };
+            List<string> result = new List<string>();
+
+            foreach (var item in urls)
+            {
+                result.Add(BreadcrumbGenerator.GenerateBC(item, seps[urls.ToList().IndexOf(item)]));
+            }
+
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("~/scramble-generator")]
+        public IActionResult ScrambleGenerator()
+        {
+            var words = new string[]
+            {
+                "rkqodlw",
+                "cedewaraaossoqqyt",
+                "katas",
+                "scriptjavx",
+                "scriptingjava",
+                "scriptsjava",
+                "javscripts",
+                "aabbcamaomsccdd",
+                "commas",
+                "sammoc",
+            };
+
+            var compare = new string[]
+            {
+                "world",
+                "codewars",
+                "steak",
+                "javascript",
+                "javascript",
+                "javascript",
+                "javascript",
+                "commas",
+                "commas",
+                "commas",
+            };
+
+            var result = new List<bool>();
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                result.Add(Scramble.ScrambleCheck(words[i], compare[i]));
+            }
+
+            return Ok(result);
+        }
     }
 }

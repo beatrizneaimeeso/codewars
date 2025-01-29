@@ -224,5 +224,13 @@ namespace CodeWars.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet]
+        [Route("~/custom-xmas-tree")]
+        public IActionResult CustomXmasTree()
+        {
+            var result = ChristmasTree.CustomChristmasTree("1234", 6);
+            return Ok(result);
+        }
     }
 }

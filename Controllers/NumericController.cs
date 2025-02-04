@@ -137,5 +137,12 @@ namespace CodeWars.Controllers
             var result = HumanTime.GetReadableTime(1600);
             return Ok(result);
         }
+
+        [Route("~/english-beggars")]
+        public IActionResult EnglishBeggars()
+        {
+            var result = BeggarsClass.Beggars([1, 2, 3, 4, 5], 3);
+            return Ok(result);
+        }
     }
 }

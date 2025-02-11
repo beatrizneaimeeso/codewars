@@ -232,5 +232,14 @@ namespace CodeWars.Controllers
             var result = ChristmasTree.CustomChristmasTree("1234", 6);
             return Ok(result);
         }
+
+        [HttpGet]
+        [Route("~/directions-reduction")]
+        public IActionResult DirReduc()
+        {
+            var directions = new string[] { "NORTH", "WEST", "SOUTH", "EAST" };
+            var result = DirectionsReduction.dirReduc(directions);
+            return Ok(result);
+        }
     }
 }

@@ -241,5 +241,13 @@ namespace CodeWars.Controllers
             var result = DirectionsReduction.dirReduc(directions);
             return Ok(result);
         }
+
+        [HttpGet]
+        [Route("~/robot")]
+        public IActionResult Robot()
+        {
+            var robot = RoboScript.Execute("FFFFFLFFFFFLFFFFFLFFFFFL");
+            return Ok(robot);
+        }
     }
 }

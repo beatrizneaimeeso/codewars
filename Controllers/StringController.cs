@@ -249,5 +249,13 @@ namespace CodeWars.Controllers
             var robot = RoboScript.Execute("FFFFFLFFFFFLFFFFFLFFFFFL");
             return Ok(robot);
         }
+
+        [HttpGet]
+        [Route("~/reflection")]
+        public IActionResult ReflectionProblem()
+        {
+            var result = Reflection.ConcatStringMembers(new ReflectionTest());
+            return Ok(result);
+        }
     }
 }
